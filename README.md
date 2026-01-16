@@ -1,75 +1,60 @@
-# Nuxt Minimal Starter
+# Proyecto de Mapa Sisdai con Nuxt
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Este es un proyecto de demostración que integra la librería de componentes geoespaciales de `@centrogeomx/sisdai-mapas` en una aplicación web moderna construida con Nuxt.js (versión 3+).
 
-## Setup
+El objetivo principal es mostrar un mapa interactivo con una capa base y una capa WMS superpuesta, configurado para funcionar correctamente en un entorno de renderizado del lado del servidor (SSR) como Nuxt.
 
-Make sure to install dependencies:
+## Características Implementadas
+
+- **Mapa Base**: Se utiliza un mapa base de teselas XYZ por defecto.
+- **Capa WMS**: Se superpone una capa de un servicio WMS (Web Map Service) que muestra datos de "tiraderos clandestinos".
+- **Renderizado en Cliente**: El mapa se renderiza exclusivamente en el navegador (`client-side`) utilizando la funcionalidad `<client-only>` de Nuxt para asegurar la compatibilidad con librerías que manipulan el DOM como OpenLayers.
+
+## Tecnologías Utilizadas
+
+- **Nuxt.js**: Framework de Vue para aplicaciones web universales.
+- **Vue.js**: Framework progresivo de JavaScript.
+- **`@centrogeomx/sisdai-mapas`**: Librería de componentes de Vue para la creación de mapas interactivos.
+  - **`<SisdaiMapa>`**: Componente contenedor principal del mapa.
+  - **`<SisdaiCapaXyz>`**: Componente para la capa base de teselas.
+  - **`<SisdaiCapaWms>`**: Componente para la capa de datos WMS.
+- **`@centrogeomx/sisdai-css`**: Paquete de estilos para los componentes Sisdai.
+- **OpenLayers**: El motor de mapas subyacente que utiliza `sisdai-mapas`.
+
+## Puesta en Marcha
+
+### Prerrequisitos
+
+- [Node.js](https://nodejs.org/) (versión 18 o superior recomendada)
+- [npm](https://www.npmjs.com/) (o un gestor de paquetes equivalente)
+
+### Instalación
+
+1. Clona el repositorio (si aún no lo has hecho).
+2. Navega al directorio del proyecto.
+3. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+### Servidor de Desarrollo
+
+Inicia el servidor de desarrollo local. La aplicación estará disponible en `http://localhost:3000`.
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+### Producción
 
-Build the application for production:
+Para construir la aplicación para un entorno de producción:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+Para previsualizar la build de producción localmente:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
